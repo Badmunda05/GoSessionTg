@@ -9,8 +9,8 @@ import (
 
 func main() {
 	client, err := telegram.NewClient(telegram.ClientConfig{
-		AppID:        123456,               // 🔴  App ID daal
-		AppHash:      "your_app_hash_here", // 🔴  App Hash daal
+		AppID:        123456,               // 🔴  App ID
+		AppHash:      "your_app_hash_here", // 🔴  App Hash
 		MemorySession: true,
 	})
 
