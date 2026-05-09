@@ -22,20 +22,21 @@ on a VPS without needing OTP every time.
 
 ---
 
-## Option 1 — Pyrogram (Python)
-
-### Install
+## Clone the Repo
 
 ```bash
-pip install pyrogram tgcrypto
-# or
-pip install -r pyrogram-session/requirements.txt
+git clone https://github.com/Badmunda05/GoSessionTg
 ```
 
-### Run
+---
+
+## Option 1 — Pyrogram (Python)
+
+### Install & Run
 
 ```bash
-cd pyrogram-session
+cd ~/GoSessionTg/pyrogram-session
+pip3 install -r requirements.txt
 python3 session_gen.py
 ```
 
@@ -62,18 +63,11 @@ BQHBfTsAxx_NOTREAL_xxxxxxxxxxxxxxxxxxxxxxxxxxxx...
 
 ## Option 2 — Telethon (Python)
 
-### Install
+### Install & Run
 
 ```bash
-pip install telethon
-# or
-pip install -r telethon-session/requirements.txt
-```
-
-### Run
-
-```bash
-cd telethon-session
+cd ~/GoSessionTg/telethon-session
+pip3 install -r requirements.txt
 python3 session_gen.py
 ```
 
@@ -98,20 +92,54 @@ echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-### Run
+### Install & Run
 
 ```bash
-cd go-session
-go mod tidy        # download dependencies (first time only)
+cd ~/GoSessionTg/go-session
+go mod tidy
 go run main.go
 ```
 
 ### Build standalone binary (no Go needed after this)
 
 ```bash
-cd go-session
+cd ~/GoSessionTg/go-session
 go build -o session-gen main.go
 ./session-gen
+```
+
+---
+
+## VPS Quick-Start (Fresh Ubuntu — Copy & Paste)
+
+### Pyrogram
+
+```bash
+sudo apt update && sudo apt install -y python3 python3-pip git
+git clone https://github.com/Badmunda05/GoSessionTg
+cd ~/GoSessionTg/pyrogram-session
+pip3 install -r requirements.txt
+python3 session_gen.py
+```
+
+### Telethon
+
+```bash
+sudo apt update && sudo apt install -y python3 python3-pip git
+git clone https://github.com/Badmunda05/GoSessionTg
+cd ~/GoSessionTg/telethon-session
+pip3 install -r requirements.txt
+python3 session_gen.py
+```
+
+### Go
+
+```bash
+sudo apt update && sudo apt install -y golang-go git
+git clone https://github.com/Badmunda05/GoSessionTg
+cd ~/GoSessionTg/go-session
+go mod tidy
+go run main.go
 ```
 
 ---
@@ -185,37 +213,10 @@ func main() {
 
 ---
 
-## VPS Quick-Start (Fresh Ubuntu — Copy & Paste)
-
-### Pyrogram
-
-```bash
-sudo apt update && sudo apt install -y python3 python3-pip
-pip3 install pyrogram tgcrypto
-cd pyrogram-session && python3 session_gen.py
-```
-
-### Telethon
-
-```bash
-sudo apt update && sudo apt install -y python3 python3-pip
-pip3 install telethon
-cd telethon-session && python3 session_gen.py
-```
-
-### Go
-
-```bash
-sudo apt update && sudo apt install -y golang-go
-cd go-session && go mod tidy && go run main.go
-```
-
----
-
 ## Project Structure
 
 ```
-TgSessionGen/
+GoSessionTg/
 ├── go-session/
 │   ├── main.go                 ← Go session generator (GoGram)
 │   └── go.mod                  ← Go module file
@@ -236,8 +237,8 @@ TgSessionGen/
 | Problem | Fix |
 |---------|-----|
 | `go: command not found` | Install Go — see Option 3 above |
-| `ModuleNotFoundError: pyrogram` | `pip install pyrogram tgcrypto` |
-| `ModuleNotFoundError: telethon` | `pip install telethon` |
+| `ModuleNotFoundError: pyrogram` | `pip3 install pyrogram tgcrypto` |
+| `ModuleNotFoundError: telethon` | `pip3 install telethon` |
 | OTP not arriving | Check Telegram app — code comes as a message from Telegram |
 | `PHONE_NUMBER_INVALID` | Use full format: `+919876543210` |
 | `API_ID_INVALID` | Double-check App ID and Hash from my.telegram.org |
