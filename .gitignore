@@ -1,0 +1,18 @@
+# Session files - NEVER commit these
+session_string.txt
+telethon_session.txt
+*.session
+
+# Go build output
+go-session/session-gen
+go-session/session-gen.exe
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
